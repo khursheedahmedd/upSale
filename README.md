@@ -519,7 +519,7 @@ upwork-automation-app/
 │   │   └── lib/api.ts
 │   └── package.json
 │
-└── IBM_WATSONX_HACKATHON_README.md  # ⭐ This file
+
 ```
 
 ---
