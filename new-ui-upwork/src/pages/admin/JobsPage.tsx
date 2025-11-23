@@ -586,37 +586,33 @@ const JobsPage: React.FC<JobsPageProps> = ({ apiUrl }) => {
         </div>
       )}
 
-      {/* Enhanced Header */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-white via-teal-50/30 to-emerald-100/40 rounded-2xl shadow-xl border border-teal-100/50">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="relative p-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-emerald-600 rounded-2xl blur-lg opacity-30 animate-pulse"></div>
-                <div className="relative p-4 bg-gradient-to-br from-teal-500 via-teal-600 to-emerald-600 rounded-2xl shadow-2xl">
-                  <Shield className="h-8 w-8 text-white" />
-                </div>
+      {/* Minimal Header */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+        <div className="p-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-teal-500 rounded-lg">
+                <Shield className="h-5 w-5 text-white" />
               </div>
               <div>
-                <h1 className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-teal-700 via-teal-800 to-emerald-800 bg-clip-text text-transparent mb-2">
-                  Jobs Management
+                <h1 className="text-xl font-bold text-gray-900">
+                  IBM Sales Navigator for Upwork
                 </h1>
-                <div className="flex items-center gap-4">
-                  <p className="text-teal-700 font-medium">Smart job discovery & management</p>
-                  <div className="flex items-center gap-2 px-3 py-1 bg-emerald-100 rounded-full">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                    <span className="text-xs font-semibold text-emerald-700">LIVE</span>
+                <div className="flex items-center gap-3 mt-0.5">
+                  <p className="text-xs text-gray-600">AI-powered job discovery</p>
+                  <div className="flex items-center gap-1.5 px-2 py-0.5 bg-emerald-50 rounded-full">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs font-medium text-emerald-700">LIVE</span>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Enhanced Status and Controls */}
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-sm border border-teal-200 rounded-xl shadow-sm">
-                <Activity className="h-4 w-4 text-teal-600" />
-                <span className="text-sm font-medium text-teal-700">
+            {/* Status and Controls */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-md">
+                <Activity className="h-3.5 w-3.5 text-gray-600" />
+                <span className="text-xs font-medium text-gray-700">
                   {analytics.total} Jobs • {analytics.active} Active
                 </span>
               </div>
@@ -626,326 +622,277 @@ const JobsPage: React.FC<JobsPageProps> = ({ apiUrl }) => {
                 disabled={loading}
                 variant="outline"
                 size="sm"
-                className="bg-white/70 backdrop-blur-sm border-2 border-teal-200 hover:border-teal-400 hover:bg-teal-50 transition-all duration-300 shadow-sm hover:shadow-md rounded-xl"
+                className="h-8 px-3 text-xs"
               >
-                <div className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`}>
+                <div className={`w-3.5 h-3.5 mr-1.5 ${loading ? 'animate-spin' : ''}`}>
                   {loading ? (
-                    <div className="w-4 h-4 border-2 border-gray-300 border-t-teal-600 rounded-full"></div>
+                    <div className="w-3.5 h-3.5 border-2 border-gray-300 border-t-teal-600 rounded-full"></div>
                   ) : (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                     </svg>
                   )}
                 </div>
-                Refresh Data
+                Refresh
               </Button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Status Indicator */}
-      <div className="flex items-center justify-center mb-4">
-        <div className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200 rounded-xl shadow-sm">
-          <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-emerald-700">Live Updates Active</span>
+      {/* Minimal Status Indicator */}
+      <div className="flex items-center justify-center">
+        <div className="flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200 rounded-md text-xs">
+          <div className="flex items-center gap-1.5">
+            <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+            <span className="font-medium text-gray-700">Live</span>
           </div>
           {notificationsEnabled && (
-            <div className="flex items-center gap-1 px-3 py-1 bg-emerald-100 rounded-full">
+            <div className="flex items-center gap-1 px-2 py-0.5 bg-emerald-50 rounded">
               <Bell className="w-3 h-3 text-emerald-600" />
-              <span className="text-xs font-semibold text-emerald-700">System Notifications ON</span>
+              <span className="font-medium text-emerald-700">Notifications ON</span>
             </div>
           )}
           {relevanceFilter === 'strong' && (
-            <div className="flex items-center gap-1 px-3 py-1 bg-teal-100 rounded-full">
-              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
-              <span className="text-xs font-semibold text-teal-700">Strong Match Filter</span>
+            <div className="flex items-center gap-1 px-2 py-0.5 bg-teal-50 rounded">
+              <span className="font-medium text-teal-700">Strong Match</span>
             </div>
           )}
-          <div className="flex items-center gap-1 px-3 py-1 bg-blue-100 rounded-full">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-xs font-semibold text-blue-700">Auto-refresh: 90s</span>
+          <div className="flex items-center gap-1 px-2 py-0.5 bg-blue-50 rounded">
+            <span className="font-medium text-blue-700">Auto-refresh: 90s</span>
           </div>
         </div>
       </div>
 
-      {/* Search and Filters */}
-      <Card className="p-6 shadow-xl border-0 bg-gradient-to-br from-white via-gray-50/50 to-blue-50/20">
-        <div className="space-y-4">
-          <div className="flex flex-col lg:flex-row gap-4">
-            {/* Enhanced Search Input */}
-            <div className="flex-1 relative group">
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 transition-colors group-focus-within:text-blue-600">
-                <Search className="h-5 w-5 text-gray-400" />
-              </div>
-              <Input
-                placeholder="Search jobs by title, client, or description..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 h-14 text-base border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-300 rounded-xl bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md"
-              />
-              {searchTerm && (
-                <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setSearchTerm("")}
-                    className="h-6 w-6 p-0 hover:bg-gray-200 rounded-full"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                </div>
-              )}
+      {/* Minimal Search and Filters */}
+      <Card className="p-3 shadow-sm border border-gray-200">
+        <div className="flex flex-col lg:flex-row gap-2">
+          {/* Compact Search Input */}
+          <div className="flex-1 relative">
+            <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
+              <Search className="h-4 w-4 text-gray-400" />
             </div>
+            <Input
+              placeholder="Search jobs..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-9 h-9 text-sm border-gray-200 focus:border-blue-500 rounded-md"
+            />
+            {searchTerm && (
+              <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setSearchTerm("")}
+                  className="h-5 w-5 p-0 hover:bg-gray-200 rounded-full"
+                >
+                  <X className="h-3 w-3" />
+                </Button>
+              </div>
+            )}
+          </div>
+          
+          {/* Compact Filters */}
+          <div className="flex gap-2">
+            <Select value={relevanceFilter} onValueChange={setRelevanceFilter}>
+              <SelectTrigger className="w-36 h-9 text-sm border-gray-200 rounded-md">
+                <SelectValue placeholder="Filter" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all" className="text-sm">All Jobs</SelectItem>
+                <SelectItem value="strong" className="text-sm">Strong Match</SelectItem>
+              </SelectContent>
+            </Select>
             
-            {/* Enhanced Filters and Controls */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              {/* Enhanced Relevance Filter */}
-              <div className="relative">
-                <Select value={relevanceFilter} onValueChange={setRelevanceFilter}>
-                  <SelectTrigger className="w-48 h-14 border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 transition-all duration-300 rounded-xl bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md">
-                    <SelectValue placeholder="Filter by Relevance" />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-xl border-2 shadow-xl">
-                    <SelectItem value="all" className="py-3 rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="w-3 h-3 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full shadow-sm"></div>
-                        <span className="font-medium">All Jobs</span>
-                      </div>
-                    </SelectItem>
-                    <SelectItem value="strong" className="py-3 rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full shadow-sm"></div>
-                        <span className="font-medium">Strong Match</span>
-                      </div>
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              
-              {/* Enhanced Notification Toggle */}
-              <Button 
-                onClick={toggleNotifications}
-                variant={notificationsEnabled ? "default" : "outline"}
-                className={`h-14 px-8 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 ${
-                  notificationsEnabled 
-                    ? "bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white border-0" 
-                    : "bg-white/80 backdrop-blur-sm border-2 border-gray-200 hover:border-teal-300 hover:bg-teal-50 text-gray-700"
-                }`}
-              >
-                {notificationsEnabled ? (
-                  <>
-                    <Bell className="w-5 h-5 mr-2" />
-                    Notifications On
-                  </>
-                ) : (
-                  <>
-                    <BellOff className="w-5 h-5 mr-2" />
-                    Enable Notifications
-                  </>
-                )}
-              </Button>
-              
-                        {/* Test Notification Button */}
-          {notificationsEnabled && (
-            <Button
-              onClick={() => showNotification("Test Job", "This is a test notification to verify the system is working correctly.")}
-              variant="outline"
+            <Button 
+              onClick={toggleNotifications}
+              variant={notificationsEnabled ? "default" : "outline"}
               size="sm"
-              className="h-14 px-4 bg-white/80 backdrop-blur-sm border-2 border-teal-200 hover:border-teal-400 hover:bg-teal-50 text-teal-700 transition-all duration-300 shadow-sm hover:shadow-md rounded-xl"
+              className={`h-9 px-3 text-xs ${
+                notificationsEnabled 
+                  ? "bg-teal-600 hover:bg-teal-700" 
+                  : ""
+              }`}
             >
-              <Bell className="w-4 h-4 mr-2" />
-              Test
+              {notificationsEnabled ? (
+                <>
+                  <Bell className="w-3.5 h-3.5 mr-1.5" />
+                  Notifications
+                </>
+              ) : (
+                <>
+                  <BellOff className="w-3.5 h-3.5 mr-1.5" />
+                  Notifications
+                </>
+              )}
             </Button>
-          )}
-          
-
-          
-
-          
-
-            </div>
+            
+            {notificationsEnabled && (
+              <Button
+                onClick={() => showNotification("Test Job", "This is a test notification to verify the system is working correctly.")}
+                variant="outline"
+                size="sm"
+                className="h-9 px-3 text-xs"
+              >
+                <Bell className="w-3.5 h-3.5 mr-1.5" />
+                Test
+              </Button>
+            )}
           </div>
         </div>
       </Card>
 
-      {/* Enhanced Bulk Actions */}
+      {/* Compact Bulk Actions */}
       {selectedJobs.size > 0 && (
-        <Card className="p-5 border-0 shadow-lg bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-l-blue-500">
+        <Card className="p-3 border border-blue-200 bg-blue-50">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-blue-100 rounded-full">
-                <CheckCircle className="h-5 w-5 text-blue-600" />
-              </div>
-              <div>
-                <span className="text-lg font-bold text-blue-900">{selectedJobs.size}</span>
-                <span className="text-sm font-medium text-blue-700 ml-2">
-                  {selectedJobs.size === 1 ? 'job selected' : 'jobs selected'}
-                </span>
-              </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-4 w-4 text-blue-600" />
+              <span className="text-sm font-medium text-blue-900">
+                {selectedJobs.size} {selectedJobs.size === 1 ? 'job' : 'jobs'} selected
+              </span>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-2">
               <Select value={bulkAction} onValueChange={setBulkAction}>
-                <SelectTrigger className="w-44 h-11 border-2 border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 rounded-lg bg-white shadow-sm">
-                  <SelectValue placeholder="Choose Action" />
+                <SelectTrigger className="w-36 h-8 text-xs border-gray-200 rounded-md bg-white">
+                  <SelectValue placeholder="Action" />
                 </SelectTrigger>
-                <SelectContent className="rounded-lg shadow-xl">
-                  <SelectItem value="available" className="py-2">✅ Mark Available</SelectItem>
-                  <SelectItem value="in-progress" className="py-2">⏳ Mark In Progress</SelectItem>
-                  <SelectItem value="completed" className="py-2">🎉 Mark Completed</SelectItem>
-                  <SelectItem value="irrelevant" className="py-2">❌ Mark Irrelevant</SelectItem>
+                <SelectContent>
+                  <SelectItem value="available" className="text-xs">Mark Available</SelectItem>
+                  <SelectItem value="in-progress" className="text-xs">Mark In Progress</SelectItem>
+                  <SelectItem value="completed" className="text-xs">Mark Completed</SelectItem>
+                  <SelectItem value="irrelevant" className="text-xs">Mark Irrelevant</SelectItem>
                 </SelectContent>
               </Select>
               <Button 
                 size="sm" 
                 onClick={() => handleBulkAction(bulkAction)}
                 disabled={!bulkAction}
-                className="h-11 px-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                className="h-8 px-3 text-xs bg-blue-600 hover:bg-blue-700"
               >
-                Apply Changes
+                Apply
               </Button>
               <Button 
                 variant="outline" 
                 size="sm" 
                 onClick={() => setSelectedJobs(new Set())}
-                className="h-11 px-6 border-2 border-gray-300 hover:border-gray-400 hover:bg-gray-50 text-gray-700 font-medium rounded-lg transition-colors shadow-sm"
+                className="h-8 px-3 text-xs"
               >
-                Clear Selection
+                Clear
               </Button>
             </div>
           </div>
         </Card>
       )}
 
-      {/* Enhanced Jobs Table */}
-      <Card className="overflow-hidden shadow-2xl border-0 bg-white">
+      {/* Compact Jobs Table */}
+      <Card className="overflow-hidden shadow-sm border border-gray-200 bg-white">
         <CardContent className="p-0">
           {/* Desktop Table */}
           <div className="hidden md:block">
             <table className="table-auto w-full">
-              <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200">
+              <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="text-left p-4 font-bold text-gray-800">
+                  <th className="text-left p-2 font-semibold text-gray-700 text-xs">
                     <Checkbox 
                       checked={selectedJobs.size === sortedJobs.length && sortedJobs.length > 0}
                       onCheckedChange={handleSelectAll}
                     />
                   </th>
-                  <th className="text-left p-4 font-bold text-gray-800 text-sm">Job Details</th>
-                  <th className="text-left p-4 font-bold text-gray-800 text-sm">Status</th>
-                  <th className="text-left p-4 font-bold text-gray-800 text-sm">Budget & Timeline</th>
-                  <th className="text-left p-4 font-bold text-gray-800 text-sm">Client Info</th>
-                  <th className="text-left p-4 font-bold text-gray-800 text-sm">Published</th>
-                  <th className="text-left p-4 font-bold text-gray-800 text-sm">Actions</th>
+                  <th className="text-left p-2 font-semibold text-gray-700 text-xs">Job Details</th>
+                  <th className="text-left p-2 font-semibold text-gray-700 text-xs">Status</th>
+                  <th className="text-left p-2 font-semibold text-gray-700 text-xs">Budget</th>
+                  <th className="text-left p-2 font-semibold text-gray-700 text-xs">Client</th>
+                  <th className="text-left p-2 font-semibold text-gray-700 text-xs">Published</th>
+                  <th className="text-left p-2 font-semibold text-gray-700 text-xs">Actions</th>
                 </tr>
               </thead>
               <tbody>
                 {sortedJobs.map((job, index) => (
-                  <tr key={job.id} className={`border-b border-gray-100 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 align-middle group ${
-                    index % 2 === 0 ? 'bg-white' : 'bg-gray-50/30'
+                  <tr key={job.id} className={`border-b border-gray-100 hover:bg-blue-50/30 transition-colors align-top group ${
+                    index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'
                   }`}>
-                    <td className="p-4">
+                    <td className="p-2">
                       <Checkbox 
                         checked={selectedJobs.has(job.id)}
                         onCheckedChange={(checked) => handleSelectJob(job.id, checked as boolean)}
                       />
                     </td>
-                    <td className="p-4 pr-0">
-                      <div className="font-bold text-base mb-2 text-gray-900 group-hover:text-blue-900 transition-colors">{job.title}</div>
-                      <div className="text-sm text-gray-600 mb-3 leading-relaxed">
+                    <td className="p-2">
+                      <div className="font-semibold text-sm mb-1 text-gray-900">{job.title}</div>
+                      <div className="text-xs text-gray-600 mb-2 line-clamp-2">
                         {job.description
-                          ? job.description.split(" ").slice(0, 15).join(" ") + (job.description.split(" ").length > 15 ? "..." : "")
+                          ? job.description.split(" ").slice(0, 12).join(" ") + (job.description.split(" ").length > 12 ? "..." : "")
                           : ""}
                       </div>
-                      <div className="space-y-2 mb-3">
-                        <div className="flex items-center gap-2 text-sm text-gray-700">
-                          <Briefcase className="h-4 w-4 text-blue-500" />
-                          <span className="font-medium">Engagement:</span> 
-                          <span className="text-gray-600">{job.engagement || 'N/A'}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-700">
-                          <BarChart3 className="h-4 w-4 text-green-500" />
-                          <span className="font-medium">Experience:</span> 
-                          <span className="text-gray-600">{job.experienceLevel || 'N/A'}</span>
-                        </div>
+                      <div className="flex items-center gap-3 text-xs text-gray-600 mb-2">
+                        <span className="flex items-center gap-1">
+                          <Briefcase className="h-3 w-3" />
+                          {job.engagement || 'N/A'}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <BarChart3 className="h-3 w-3" />
+                          {job.experienceLevel || 'N/A'}
+                        </span>
                       </div>
-                      <div className="mb-2">
-                        <ProposalGeneratorModal
-                          job={job}
-                          trigger={
-                            <Button
-                              className="bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white flex items-center gap-2 justify-center text-xs py-2 px-4 max-w-xs rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-105"
-                              size="sm"
-                            >
-                              <Sparkles className="w-4 h-4" />
-                              Generate Proposal
-                            </Button>
-                          }
-                        />
+                      <ProposalGeneratorModal
+                        job={job}
+                        trigger={
+                          <Button
+                            className="bg-teal-600 hover:bg-teal-700 text-white text-xs py-1 px-2 h-7"
+                            size="sm"
+                          >
+                            <Sparkles className="w-3 h-3 mr-1" />
+                            Generate Proposal
+                          </Button>
+                        }
+                      />
+                    </td>
+                    <td className="p-2">
+                      <Button
+                        variant={
+                          job.status === 'available' ? 'default' :
+                          job.status === 'submitted' ? 'secondary' :
+                          job.status === 'in-progress' ? 'outline' :
+                          job.status === 'completed' ? 'default' :
+                          job.status === 'irrelevant' ? 'destructive' :
+                          'outline'
+                        }
+                        size="sm"
+                        className={`px-2 py-1 rounded-full text-xs h-6 ${getStatusColor(job.status)}`}
+                        disabled
+                      >
+                        {job.status?.charAt(0).toUpperCase() + job.status?.slice(1)}
+                      </Button>
+                    </td>
+                    <td className="p-2">
+                      <div className="text-sm font-semibold text-green-700">{job.currency} {job.amount}</div>
+                      <div className="text-xs text-gray-600">{job.durationLabel || 'N/A'}</div>
+                    </td>
+                    <td className="p-2">
+                      <div className="text-xs font-medium text-gray-900">{job.client_country}</div>
+                      <div className="text-xs text-gray-600">
+                        {job.client_total_hires !== undefined ? `${job.client_total_hires} hires` : 'N/A'}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        {job.client_total_spent !== undefined ? `$${job.client_total_spent}` : 'N/A'}
                       </div>
                     </td>
-                    <td className="p-4 pl-0">
-                      <div className="space-y-1">
-                        <Button
-                          variant={
-                            job.status === 'available' ? 'default' :
-                            job.status === 'submitted' ? 'secondary' :
-                            job.status === 'in-progress' ? 'outline' :
-                            job.status === 'completed' ? 'default' :
-                            job.status === 'irrelevant' ? 'destructive' :
-                            'outline'
-                          }
-                          size="sm"
-                          className={`flex items-center gap-2 shadow-sm px-3 py-1.5 rounded-full font-semibold text-xs ${getStatusColor(job.status)}`}
-                          disabled
-                        >
-                          {job.status === 'available' && <Briefcase className="w-3 h-3 mr-1 text-green-600" />}
-                          {job.status === 'submitted' && <Clock className="w-3 h-3 mr-1 text-blue-600" />}
-                          {job.status === 'in-progress' && <CheckCircle className="w-3 h-3 mr-1 text-yellow-600" />}
-                          {job.status === 'completed' && <CheckCircle className="w-3 h-3 mr-1 text-green-700" />}
-                          {job.status === 'irrelevant' && <AlertTriangle className="w-3 h-3 mr-1 text-red-600" />}
-                          {job.status?.charAt(0).toUpperCase() + job.status?.slice(1)}
-                        </Button>
+                    <td className="p-2">
+                      <div className="text-xs text-gray-700">
+                        {job.publishedDateTime ? new Date(job.publishedDateTime).toLocaleDateString() : 'N/A'}
                       </div>
                     </td>
-                    <td className="p-4 pl-0">
-                      <div className="space-y-2">
-                        <div className="text-lg font-bold text-green-700">{job.currency} {job.amount}</div>
-                        <div className="text-sm text-gray-600">
-                          {job.durationLabel || 'N/A'}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <div className="space-y-2">
-                        <div className="font-semibold text-gray-900">{job.client_country}</div>
-                        <div className="text-sm text-gray-600">
-                          {job.client_total_hires !== undefined ? `${job.client_total_hires} hires` : 'N/A'}
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          {job.client_total_spent !== undefined ? `$${job.client_total_spent} spent` : 'N/A'}
-                        </div>
-                        <div className="text-sm text-gray-600">
-                          {job.client_verification_status || 'N/A'}
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-4">
-                      <div className="text-sm text-gray-700 font-medium">
-                        {job.publishedDateTime ? new Date(job.publishedDateTime).toLocaleString() : 'N/A'}
-                      </div>
-                    </td>
-                    <td className="p-4 whitespace-normal break-words">
-                      <div className="flex items-center gap-3">
+                    <td className="p-2">
+                      <div className="flex items-center gap-1">
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button 
                               variant="ghost" 
                               size="sm"
-                              className="h-10 w-10 p-0 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded-lg"
+                              className="h-7 w-7 p-0 hover:bg-blue-50 hover:text-blue-600 transition-colors rounded"
                             >
-                              <Eye className="h-5 w-5" />
+                              <Eye className="h-4 w-4" />
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto">
@@ -1262,27 +1209,17 @@ const JobsPage: React.FC<JobsPageProps> = ({ apiUrl }) => {
         </DialogContent>
       </Dialog>
 
-      {/* Floating Action Button */}
-      <div className="fixed bottom-8 right-8 z-50">
-        <div className="flex flex-col gap-3 items-end">
-          {/* Quick Stats Tooltip */}
-          <div className="bg-white/90 backdrop-blur-sm border border-teal-200 rounded-lg px-4 py-2 shadow-lg">
-            <div className="text-xs text-gray-600 text-right">
-              <div className="font-semibold text-teal-600">{jobs.length} jobs loaded</div>
-              <div>{relevanceFilter === 'strong' ? 'Strong matches only' : 'All jobs'}</div>
-            </div>
-          </div>
-          
-          {/* Main FAB */}
-          <Button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-14 h-14 rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-110 border-4 border-white"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-          </Button>
-        </div>
+      {/* Compact Floating Action Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <Button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="w-10 h-10 rounded-full bg-teal-600 hover:bg-teal-700 text-white shadow-lg hover:shadow-xl transition-all"
+          title={`${jobs.length} jobs loaded`}
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </Button>
       </div>
     </div>
   );

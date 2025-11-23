@@ -16,7 +16,7 @@ except Exception as e:
     logger.warning("⚠️  Please configure your database in .env file")
 
 app = FastAPI(
-    title="Upwork Automation Tool API - IBM watsonx Edition",
+    title="IBM Sales Navigator for Upwork API",
     description="AI-powered Upwork job automation using IBM watsonx.ai and ADK",
     version="2.0.0-watsonx"
 )
@@ -50,7 +50,7 @@ logger.info("✓ IBM watsonx.governance routes registered at /api/watsonx/govern
 @app.get("/")
 async def root():
     return {
-        "message": "Welcome to Upwork Automation Tool API - IBM watsonx Edition",
+        "message": "Welcome to IBM Sales Navigator for Upwork API",
         "powered_by": "IBM watsonx.ai & ADK",
         "version": "2.0.0-watsonx",
         "features": [

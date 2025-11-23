@@ -6,7 +6,7 @@ load_dotenv()
 
 class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
-    PROJECT_NAME: str = "Upwork Automation API"
+    PROJECT_NAME: str = "IBM Sales Navigator for Upwork API"
     
 
     POSTGRES_USER: Optional[str] = os.getenv("POSTGRES_USER", None)

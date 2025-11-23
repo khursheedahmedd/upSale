@@ -1,4 +1,4 @@
-# Upwork Automation Backend
+# IBM Sales Navigator for Upwork - Backend
 
 ## Prerequisites
 

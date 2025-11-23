@@ -1,7 +1,7 @@
 services:
   db:
     image: postgres:latest
-    container_name: postgres_fastapi
+    container_name: ibm_sales_navigator_postgres
     restart: always
     ports:
       - "5434:5432"
@@ -14,7 +14,7 @@ services:
 
   app:
     build: .
-    container_name: upwork_fastapi
+    container_name: ibm_sales_navigator_api
     restart: always
     ports:
       - "8001:8001" 

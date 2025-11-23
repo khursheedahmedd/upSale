@@ -29,9 +29,9 @@ async def get_dashboard_stats(db: Session = Depends(get_db)):
         # Total jobs
         total_jobs = db.query(func.count(Job.id)).scalar() or 0
         
-        # Relevant jobs (strong or moderate relevance)
+        # Relevant jobs (Strong or Medium category)
         relevant_jobs = db.query(func.count(JobRelevance.id)).filter(
-            JobRelevance.relevance_category.in_(['strong', 'moderate'])
+            JobRelevance.category.in_(['Strong', 'Medium'])
         ).scalar() or 0
         
         # Proposals generated

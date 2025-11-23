@@ -1,6 +1,6 @@
-# Upwork Automation - Simplified Admin Interface
+# IBM Sales Navigator for Upwork
 
-A simplified job management application with Clerk authentication for admin users.
+An AI-powered job management application with Clerk authentication for admin users.
 
 ## Features
 
@@ -22,18 +22,21 @@ A simplified job management application with Clerk authentication for admin user
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Set up environment variables:
    Create a `.env` file in the root directory with:
+
    ```
    VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
    VITE_APP_URL=http://localhost:8000
    ```
 
 4. Start the development server:
+
    ```bash
    npm run dev
    ```
@@ -48,7 +51,7 @@ The application uses Clerk for authentication. Users must sign in to access the 
 
 - **Jobs Page** (`/jobs`): Main job management interface with search, filtering, and proposal generation
 - **Dashboard** (`/dashboard`): Under construction
-- **Users** (`/users`): Under construction  
+- **Users** (`/users`): Under construction
 - **Reports** (`/reports`): Under construction
 - **Settings** (`/settings`): Under construction
 
@@ -69,4 +72,5 @@ The application uses Clerk for authentication. Users must sign in to access the 
 - Shadcn/ui components
 - Clerk authentication
 - React Router DOM
+
 # upwork-frontend

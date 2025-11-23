@@ -45,7 +45,7 @@ export function AppSidebar() {
       <SidebarHeader className="p-4">
         <div className="flex items-center space-x-2">
           <div className="bg-sidebar-primary text-sidebar-primary-foreground p-2 rounded-lg">
-            <span className="font-bold text-lg">Up Sales</span>
+            <span className="font-bold text-sm">IBM Sales Navigator</span>
           </div>
         </div>
       </SidebarHeader>
