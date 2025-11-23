@@ -1,0 +1,61 @@
+{
+    "name": "Datics AI",
+    "tools_technologies": [
+      "Python (3.9+)", "TypeScript", "React", "Next.js", "Node.js", "Express.js", "NestJS",
+      "GraphQL (Apollo Server & Client)", "RESTful APIs", "FastAPI", "Django", "Flask",
+      "AWS (Lambda, ECS, EKS, S3, RDS)", "Google Cloud Platform (Cloud Run, Firestore)", "Azure Functions",
+      "Firebase (Auth, Firestore, Functions)", "Docker", "Kubernetes", "Terraform", "Helm",
+      "MongoDB", "PostgreSQL", "Redis", "Elasticsearch", "RabbitMQ", "Celery",
+      "TensorFlow", "PyTorch", "OpenAI API (GPT-3.5/4, Embeddings)", "LangChain", "Hugging Face Transformers",
+      "scikit-learn", "spaCy", "NLTK", "Streamlit", "Grafana & Prometheus",
+      "Stripe", "RevenueCat", "PayPal", "Braintree", "TikTok API", "Instagram API", "Twitter API",
+      "Socket.IO", "WebSockets", "OAuth2 / JWT", "CI/CD (GitHub Actions, GitLab CI)", "Sentry", "Datadog"
+    ],
+    "upwork_profile": "Datics AI is a full-stack and generative AI powerhouse with over 7 years on Upwork, maintaining a 98% Job Success Score across 250+ contracts. We architect, build, and scale end-to-end web and mobile applications, from React/Next.js front-ends and Node.js/NestJS back-ends to automated Docker-based CI/CD pipelines and Kubernetes deployments. Our AI practice specializes in GPT-based chatbots, recommendation engines, and computer vision pipelines using TensorFlow, PyTorch, LangChain, and Hugging Face. We’ve delivered large-scale solutions integrating payment gateways (Stripe, RevenueCat), real-time analytics dashboards (Grafana, Prometheus), and social-media automation tools (TikTok, Instagram, Twitter APIs) for clients in e-commerce, media, and SaaS industries. Fully distributed across EST, our cross-functional teams require minimal management overhead and excel at rapid MVPs, production hardening, and continuous optimization.",
+    "location": "Headquartered in New York City, USA (EST timezone) with distributed engineers across North America",
+    "portfolio": [
+      {
+        "name": "OmniChannel Social Media Management Platform",
+        "description": "Designed and developed a microservices-based platform (React + Next.js front-end, Node.js + NestJS back-end) for scheduling, publishing, and moderating content across TikTok, Instagram, and Twitter. Integrated GraphQL API with real-time WebSocket notifications for comment moderation, analytics dashboards built on Grafana/Prometheus, and AI-driven content recommendations powered by a custom TensorFlow pipeline. Delivered 99.9% uptime across AWS ECS clusters and reduced moderation latency by 40%."
+      },
+      {
+        "name": "Cross-Platform E-Commerce Mobile App with Subscription & In-App Purchases",
+        "description": "Built a high-performance React Native app leveraging Firebase Auth/Firestore for real-time data sync and RevenueCat for seamless subscription management on iOS and Android. Implemented secure Stripe and PayPal payment flows via serverless AWS Lambda functions. Achieved a 4.8★ App Store rating, accelerated user onboarding by 60%, and increased monthly revenue by 35% within the first quarter post-launch."
+      },
+      {
+        "name": "AI-Powered Personalized Recommendation Engine",
+        "description": "Developed a scalable recommendation microservice using PyTorch and scikit-learn, deployed on GCP Cloud Run with automatic horizontal scaling. Integrated with client’s existing PostgreSQL catalog and Elasticsearch cluster to deliver personalized product suggestions in under 150ms. A/B testing showed a 27% uplift in click-through rate and 18% increase in average order value."
+      },
+      {
+        "name": "Custom WooCommerce Subscription & Payment Gateway Integration",
+        "description": "Authored multiple WordPress plugins (PHP, Laravel micro-services) to bridge WooCommerce Subscriptions with RevenueCat and Stripe. Implemented webhook listeners, retry logic, and reconciliation dashboards using FastAPI and Redis. Enabled automated trial conversions, refund workflows, and real-time financial reporting for a mid-market retail client."
+      },
+      {
+        "name": "Enterprise Gen-AI Customer Support Chatbot",
+        "description": "Designed and shipped a multi-tenant generative AI chatbot using OpenAI GPT-4 and LangChain with custom retrieval-augmented generation (RAG). Built a Next.js web-widget and Slack integration for contextual support, backed by a vector store (Pinecone) and automated document ingestion pipeline. Reduced support ticket volume by 45% and improved average response time from 8h to under 2m."
+      }
+    ],
+    "past_projects": [
+      {
+        "name": "Human-like TikTok Engagement Bot",
+        "description": "Engineered a Python-based automation system using Selenium, Playwright, and headless Chromium to mimic human interactions on TikTok (posting, commenting, following) with randomized patterns, IP rotation, and ML-driven timing models. Deployed on AWS Fargate for scalable execution and integrated Prometheus metrics to monitor engagement KPIs while maintaining sub-1% ban rate."
+      },
+      {
+        "name": "Unified Subscription Management Bridge",
+        "description": "Created a robust integration layer (FastAPI + Celery + RabbitMQ) to synchronize mobile subscriptions (via RevenueCat) with a WooCommerce membership portal. Handled webhooks, idempotency, and reconciliation for over 100k active users. Documented code and provided an admin dashboard (React + Redux) for manual overrides and audit logs."
+      },
+      {
+        "name": "Real-Time Social Media Analytics Dashboard",
+        "description": "Implemented a live data pipeline using Kafka, Spark Streaming, and Elasticsearch to ingest and index millions of social media events per day. Built a React/D3.js dashboard featuring drill-down analytics, anomaly detection alerts (scikit-learn), and automated PDF/email reporting via Node.js. Customers saw a 30% improvement in campaign optimization speed."
+      },
+      {
+        "name": "Cross-Platform Flutter Health & Fitness App",
+        "description": "Delivered a Flutter mobile application with Firebase back-end, integrating native Swift/Kotlin modules for HealthKit and Google Fit data. Developed custom animations with Rive, implemented push notifications via Firebase Cloud Messaging, and achieved 200k+ downloads with 4.6★ average rating."
+      },
+      {
+        "name": "AI-Enhanced Full-Stack Chatbot SDK",
+        "description": "Open-sourced an embeddable JavaScript/Node.js SDK enabling businesses to drop a GPT-powered chatbot into any website or React Native app. Features include customizable UI themes, multi-language support (i18n), context management, and plug-and-play integrations with Stripe, Zendesk, and Salesforce. Over 50 organizations adopted it within 6 months."
+      }
+    ]
+  }
+  

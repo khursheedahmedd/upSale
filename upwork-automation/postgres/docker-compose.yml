@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: upwork_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: upwork_datics
+      POSTGRES_PASSWORD: datics123
+      POSTGRES_DB: upwork_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
+
