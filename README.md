@@ -1,3 +1,18 @@
+## App Link
+
+- Live Link: http://130.213.189.54:5003/
+
+## Demo Credentials
+
+```
+Gmail: khursheed6577@gmail.com
+Password: <UWA123>
+
+```
+
+---
+
+
 # 🏆 UpSale with IBM watsonx ADK
 
 ---
