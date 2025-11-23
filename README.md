@@ -1,6 +1,5 @@
 # 🏆 UpSale with IBM watsonx ADK
 
-
 ---
 
 ## 🎯 Project Overview
@@ -72,7 +71,6 @@ The system automatically:
 - `GET /api/watsonx/governance/audit-log` - Audit trail
 - `GET /api/watsonx/governance/report` - Governance report
 - `GET /api/watsonx/governance/model/{model_name}/details` - Model details
-
 
 ### 4. **Retrieval Augmented Generation (RAG)**
 
@@ -372,7 +370,7 @@ npm install
 
 # Configure environment
 # Create .env with:
-# VITE_APP_URL=http://localhost:8001
+# VITE_APP_URL=http://130.213.189.54:8001
 # VITE_CLERK_PUBLISHABLE_KEY=<your-key>
 ```
 
@@ -395,8 +393,8 @@ npm run dev
 Access:
 
 - Frontend: http://localhost:5173
-- API Docs: http://localhost:8001/docs
-- API Root: http://localhost:8001
+- API Docs: http://130.213.189.54:8001/docs
+- API Root: http://130.213.189.54:8001
 
 ---
 
@@ -411,7 +409,7 @@ Access:
 2. **AI Analysis** (watsonx ADK)
 
    ```bash
-   curl -X POST http://localhost:8001/api/watsonx/adk/analyze-job/123
+   curl -X POST http://130.213.189.54:8001/api/watsonx/adk/analyze-job/123
    ```
 
    - JobMatchingAgent analyzes relevance
@@ -428,7 +426,7 @@ Access:
 4. **Generate Proposal** (watsonx ADK)
 
    ```bash
-   curl -X POST http://localhost:8001/api/watsonx/adk/generate-proposal/123
+   curl -X POST http://130.213.189.54:8001/api/watsonx/adk/generate-proposal/123
    ```
 
    - ProposalOrchestrator executes 4-agent workflow
@@ -524,10 +522,9 @@ upwork-automation-app/
 
 ---
 
-
 ### **Technical Excellence**
 
-- ✅ Proper ADK agent architecture 
+- ✅ Proper ADK agent architecture
 - ✅ Multi-agent orchestration demonstrating ADK capabilities
 - ✅ RAG integration for context-aware AI
 - ✅ Production-ready full-stack application
@@ -540,14 +537,13 @@ upwork-automation-app/
 - ✅ Scalable to thousands of users
 - ✅ Clear monetization path
 
-### **IBM Technologies
+### \*\*IBM Technologies
 
 - ✅ Multiple watsonx.ai models (granite, llama)
 - ✅ ADK agent framework and orchestration
 - ✅ RAG with semantic search
 - ✅ Enterprise-ready architecture
 - ✅ Extensible to watsonx.governance and watsonx.data
-
 
 ---
 

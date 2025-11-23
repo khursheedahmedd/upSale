@@ -151,7 +151,7 @@ const ReportsPage = () => {
                 +15%
               </Badge>
             </div>
-            <p className="text-xs text-muted-foreground mt-1">{jobStats.proposalsSubmitted} submitted</p>
+            <p className="text-xs text-muted-foreground mt-1">{jobStats.proposalsSubmitted} saved</p>
           </CardContent>
         </Card>
 

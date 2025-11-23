@@ -17,7 +17,9 @@ import {
   Users,
   Target,
   ArrowRight,
-  Brain
+  Brain,
+  Send,
+  ExternalLink
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -25,9 +27,20 @@ interface DashboardStats {
   totalJobs: number;
   relevantJobs: number;
   proposalsGenerated: number;
+  proposalsSent: number;
+  activeJobs: number;
   successRate: number;
   activeAgents: number;
   avgResponseTime: number;
+}
+
+interface ActiveJob {
+  id: string;
+  title: string;
+  client: string;
+  budget: string;
+  proposalSent: string;
+  status: 'assigned' | 'viewed' | 'completed';
 }
 
 const AdminDashboard = () => {
@@ -36,18 +49,39 @@ const AdminDashboard = () => {
     totalJobs: 0,
     relevantJobs: 0,
     proposalsGenerated: 0,
+    proposalsSent: 0,
+    activeJobs: 0,
     successRate: 0,
     activeAgents: 4,
     avgResponseTime: 0
   });
   const [isLoading, setIsLoading] = useState(true);
   const [animatedStats, setAnimatedStats] = useState<DashboardStats>(stats);
+  
+  const [activeJobs] = useState<ActiveJob[]>([
+    {
+      id: "1",
+      title: "Full-Stack Developer for AI-Powered SaaS Platform",
+      client: "TechVentures Inc.",
+      budget: "$5,000 - $10,000",
+      proposalSent: "2 hours ago",
+      status: "assigned"
+    },
+    {
+      id: "2",
+      title: "React & Node.js Expert for E-commerce Integration",
+      client: "Global Retail Solutions",
+      budget: "$3,500 - $7,000",
+      proposalSent: "5 hours ago",
+      status: "viewed"
+    }
+  ]);
 
   // Fetch dashboard stats
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const apiUrl = import.meta.env.VITE_APP_URL || 'http://localhost:8001';
+        const apiUrl = import.meta.env.VITE_APP_URL || 'http://130.213.189.54:8001';
         const response = await fetch(`${apiUrl}/api/job-listings/stats`);
         
         if (response.ok) {
@@ -60,6 +94,8 @@ const AdminDashboard = () => {
             totalJobs: hasData ? data.total_jobs : 156,
             relevantJobs: hasData ? data.relevant_jobs : 89,
             proposalsGenerated: hasData ? data.proposals_generated : 67,
+            proposalsSent: hasData ? (data.proposals_sent || 45) : 45,
+            activeJobs: hasData ? (data.active_jobs || 12) : 12,
             successRate: hasData ? data.success_rate : 75.3,
             activeAgents: 4,
             avgResponseTime: hasData ? data.avg_response_time : 2.3
@@ -74,6 +110,8 @@ const AdminDashboard = () => {
           totalJobs: 156,
           relevantJobs: 89,
           proposalsGenerated: 67,
+          proposalsSent: 45,
+          activeJobs: 12,
           successRate: 75.3,
           activeAgents: 4,
           avgResponseTime: 2.3
@@ -103,6 +141,8 @@ const AdminDashboard = () => {
         totalJobs: Math.floor(stats.totalJobs * progress),
         relevantJobs: Math.floor(stats.relevantJobs * progress),
         proposalsGenerated: Math.floor(stats.proposalsGenerated * progress),
+        proposalsSent: Math.floor(stats.proposalsSent * progress),
+        activeJobs: Math.floor(stats.activeJobs * progress),
         successRate: parseFloat((stats.successRate * progress).toFixed(1)),
         activeAgents: stats.activeAgents,
         avgResponseTime: parseFloat((stats.avgResponseTime * progress).toFixed(1))
@@ -137,21 +177,21 @@ const AdminDashboard = () => {
       trendUp: true
     },
     {
-      title: "Proposals Generated",
-      value: animatedStats.proposalsGenerated,
-      icon: FileText,
-      color: "text-purple-600",
-      bgColor: "bg-purple-50",
-      trend: `${animatedStats.proposalsGenerated} this month`,
+      title: "Proposals Sent",
+      value: animatedStats.proposalsSent,
+      icon: Send,
+      color: "text-teal-600",
+      bgColor: "bg-teal-50",
+      trend: `${animatedStats.proposalsGenerated} generated total`,
       trendUp: true
     },
     {
-      title: "Success Rate",
-      value: `${animatedStats.successRate}%`,
-      icon: TrendingUp,
+      title: "Active Jobs",
+      value: animatedStats.activeJobs,
+      icon: Activity,
       color: "text-orange-600",
       bgColor: "bg-orange-50",
-      trend: "+5.2% improvement",
+      trend: "Awaiting responses",
       trendUp: true
     }
   ];
@@ -214,33 +254,6 @@ const AdminDashboard = () => {
             IBM watsonx
           </Badge>
         </div>
-      </div>
-
-      {/* Compact Stats Grid */}
-      <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-        {statCards.map((stat, index) => (
-          <Card 
-            key={index} 
-            className="hover:shadow-md transition-all duration-200 cursor-pointer"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3">
-              <CardTitle className="text-xs font-medium">
-                {stat.title}
-              </CardTitle>
-              <div className={`${stat.bgColor} p-1.5 rounded-md`}>
-                <stat.icon className={`h-4 w-4 ${stat.color}`} />
-              </div>
-            </CardHeader>
-            <CardContent className="p-3 pt-0">
-              <div className="text-2xl font-bold">{stat.value}</div>
-              <p className={`text-xs mt-0.5 flex items-center gap-1 ${stat.trendUp ? 'text-green-600' : 'text-red-600'}`}>
-                {stat.trendUp && <TrendingUp className="h-3 w-3" />}
-                {stat.trend}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
       </div>
 
       {/* Main Content Grid */}
@@ -378,7 +391,7 @@ const AdminDashboard = () => {
             <div className="pt-2 border-t">
               <Button 
                 className="w-full h-8 text-xs bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                onClick={() => window.open('http://localhost:8001/docs', '_blank')}
+                onClick={() => window.open('http://130.213.189.54:8001/docs', '_blank')}
               >
                 <Sparkles className="mr-2 h-3.5 w-3.5" />
                 View API Documentation
@@ -387,6 +400,89 @@ const AdminDashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Active Proposals */}
+      {/* <Card>
+        <CardHeader className="p-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle className="flex items-center gap-2 text-base">
+                <Send className="h-4 w-4 text-teal-600" />
+                Active Jobs
+              </CardTitle>
+              <CardDescription className="mt-0.5 text-xs">
+                Recent job assigned
+              </CardDescription>
+            </div>
+            <Button 
+              variant="outline"
+              size="sm"
+              className="h-8 text-xs"
+              onClick={() => navigate('/jobs')}
+            >
+              View All
+              <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+            </Button>
+          </div>
+        </CardHeader>
+        <CardContent className="p-3 pt-0 space-y-3">
+          {activeJobs.map((job) => (
+            <div
+              key={job.id}
+              className="flex items-start gap-3 p-3 rounded-lg border bg-card hover:bg-accent/50 transition-colors cursor-pointer"
+              onClick={() => navigate('/jobs')}
+            >
+              <div className={`p-2 rounded-md ${
+                job.status === 'assigned' ? 'bg-green-50' : 
+                job.status === 'viewed' ? 'bg-blue-50' : 'bg-gray-50'
+              }`}>
+                <FileText className={`h-4 w-4 ${
+                  job.status === 'assigned' ? 'text-green-600' : 
+                  job.status === 'viewed' ? 'text-blue-600' : 'text-gray-600'
+                }`} />
+              </div>
+              <div className="flex-1 space-y-1">
+                <div className="flex items-start justify-between gap-2">
+                  <h4 className="font-semibold text-sm line-clamp-1">{job.title}</h4>
+                  <Badge 
+                    variant="outline" 
+                    className={`text-xs shrink-0 ${
+                      job.status === 'assigned' ? 'border-green-200 bg-green-50 text-green-700' : 
+                      job.status === 'viewed' ? 'border-blue-200 bg-blue-50 text-blue-700' : 
+                      'border-gray-200 bg-gray-50 text-gray-700'
+                    }`}
+                  >
+                    {job.status === 'assigned' ? '⭐ Assigned' : 
+                     job.status === 'viewed' ? '👁️ Viewed' : '📤 Sent'}
+                  </Badge>
+                </div>
+                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <Users className="h-3 w-3" />
+                    {job.client}
+                  </span>
+                  <span>•</span>
+                  <span>{job.budget}</span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    {job.proposalSent}
+                  </span>
+                </div>
+              </div>
+              <ExternalLink className="h-4 w-4 text-muted-foreground shrink-0" />
+            </div>
+          ))}
+          
+          <div className="pt-2 border-t">
+            <div className="flex items-center justify-between text-xs">
+              <span className="text-muted-foreground">Total proposals sent this week</span>
+              <span className="font-bold text-teal-600">{animatedStats.proposalsSent}</span>
+            </div>
+            <Progress value={(animatedStats.proposalsSent / animatedStats.proposalsGenerated) * 100} className="h-1.5 mt-2" />
+          </div>
+        </CardContent>
+      </Card> */}
 
       {/* IBM watsonx Governance */}
       <Card className="border border-primary/20">
@@ -405,7 +501,7 @@ const AdminDashboard = () => {
               variant="outline"
               size="sm"
               className="h-8 text-xs"
-              onClick={() => window.open('http://localhost:8001/api/watsonx/governance/metrics', '_blank')}
+              onClick={() => window.open('http://130.213.189.54:8001/api/watsonx/governance/metrics', '_blank')}
             >
               View Metrics
             </Button>

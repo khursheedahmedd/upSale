@@ -55,7 +55,7 @@ const ProposalGeneratorModal = ({ job, trigger }: ProposalGeneratorModalProps) =
     setTemplateError("");
     try {
       // Updated to use IBM watsonx ADK endpoint
-      const endpoint = `http://localhost:8001/api/watsonx/adk/generate-proposal/${job.id}?overwrite=${overwrite}`;
+      const endpoint = `http://130.213.189.54:8001/api/watsonx/adk/generate-proposal/${job.id}?overwrite=${overwrite}`;
       
       console.log("Attempting to generate proposal with IBM watsonx ADK:", endpoint);
       console.log("Job ID:", job.id);
@@ -101,7 +101,7 @@ const ProposalGeneratorModal = ({ job, trigger }: ProposalGeneratorModalProps) =
   const handleSaveProposal = async () => {
     try {
       // Updated to use IBM watsonx ADK endpoint
-      const response = await fetch(`http://localhost:8001/api/watsonx/adk/save-proposal/${job.id}`, {
+      const response = await fetch(`http://130.213.189.54:8001/api/watsonx/adk/save-proposal/${job.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

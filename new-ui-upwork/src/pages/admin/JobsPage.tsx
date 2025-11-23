@@ -20,9 +20,9 @@ interface JobsPageProps {
 }
 
 const sampleUsers = [
-  { id: 1, name: "Alice Smith" },
-  { id: 2, name: "Bob Johnson" },
-  { id: 3, name: "Charlie Lee" }
+  { id: 1, name: "Khursheed Ahmad" },
+  { id: 2, name: "Saadain Haider" },
+  { id: 3, name: "Muhammad Jibran" }
 ];
 
 // Sample job data for when backend is not available
@@ -131,7 +131,7 @@ const JobsPage: React.FC<JobsPageProps> = ({ apiUrl }) => {
   const [pollingInterval, setPollingInterval] = useState<NodeJS.Timeout | null>(null);
   const [lastRefreshTime, setLastRefreshTime] = useState<Date>(new Date());
   const [nextPollTime, setNextPollTime] = useState<Date>(new Date(Date.now() + 90000));
-  const apiUrlToUse = apiUrl || import.meta.env.VITE_APP_URL || "http://localhost:8001";
+  const apiUrlToUse = apiUrl || import.meta.env.VITE_APP_URL || "http://130.213.189.54:8001";
 
   const fetchJobsData = useCallback(async (url: string) => {
     setLoading(true);

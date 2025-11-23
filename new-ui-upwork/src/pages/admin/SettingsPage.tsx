@@ -1,17 +1,26 @@
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { useProposalTemplate } from "@/hooks/use-proposal-template";
 import RelevanceCheckToggle from "@/components/RelevanceCheckToggle";
-import { FileText, Save, AlertCircle, Play, Info, RefreshCw, AlertTriangle } from "lucide-react";
+import { FileText, Save, AlertCircle, Play, Info, RefreshCw, AlertTriangle, Link2, CheckCircle2, XCircle } from "lucide-react";
 import { apiClient } from "@/lib/api";
 
 const SettingsPage = () => {
   const [localTemplate, setLocalTemplate] = useState("");
   const { template, isLoading, error, saveTemplate, isSaving } = useProposalTemplate();
+  
+  // Upwork connection state
+  const [isUpworkConnected, setIsUpworkConnected] = useState(false);
+  const [upworkApiKey, setUpworkApiKey] = useState("");
+  const [upworkSecret, setUpworkSecret] = useState("");
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [connectionMessage, setConnectionMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   
   // Manual job processing state
   const [isProcessingJobs, setIsProcessingJobs] = useState(false);
@@ -50,6 +59,30 @@ const SettingsPage = () => {
   // Check if template has unsaved changes
   const hasUnsavedChanges = localTemplate !== template && localTemplate !== '';
 
+  // Upwork connection handlers
+  const handleConnectUpwork = async () => {
+    setIsConnecting(true);
+    setConnectionMessage(null);
+
+    // Simulate API call
+    setTimeout(() => {
+      if (upworkApiKey && upworkSecret) {
+        setIsUpworkConnected(true);
+        setConnectionMessage({ type: 'success', text: 'Successfully connected to Upwork!' });
+      } else {
+        setConnectionMessage({ type: 'error', text: 'Please enter both API Key and Secret' });
+      }
+      setIsConnecting(false);
+    }, 1500);
+  };
+
+  const handleDisconnectUpwork = () => {
+    setIsUpworkConnected(false);
+    setUpworkApiKey("");
+    setUpworkSecret("");
+    setConnectionMessage(null);
+  };
+
   // Manual job processing handler
   const handleManualJobProcessing = async () => {
     setIsProcessingJobs(true);
@@ -77,6 +110,8 @@ const SettingsPage = () => {
           Manage your application settings and configurations
         </p>
       </div>
+
+   
 
       {/* Relevance Check Section */}
       <RelevanceCheckToggle />
@@ -257,7 +292,7 @@ const SettingsPage = () => {
               <div className="mt-4 p-3 bg-red-50 rounded-lg">
                 <p className="text-sm font-medium text-red-800 mb-2">Troubleshooting:</p>
                 <div className="text-xs text-red-700 space-y-1">
-                  <p>• Check if your backend server is running on {import.meta.env.VITE_APP_URL || 'http://localhost:8001'}</p>
+                  <p>• Check if your backend server is running on {import.meta.env.VITE_APP_URL || 'http://130.213.189.54:8001'}</p>
                   <p>• Verify the template endpoints are available: /api/template/proposal-template</p>
                   <p>• Check browser console for detailed error logs</p>
                   <p>• Ensure the template file exists in your backend</p>

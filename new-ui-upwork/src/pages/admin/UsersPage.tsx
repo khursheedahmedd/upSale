@@ -25,109 +25,47 @@ const UsersPage = () => {
   const teamMembers = [
     {
       id: "1",
-      name: "Sarah Johnson",
-      email: "sarah.johnson@company.com",
+      name: "Khursheed Ahmad",
+      email: "khursheed.ahmad@company.com",
       role: "Senior Proposal Writer",
-      avatar: "SJ",
+      avatar: "KA",
       status: "active",
       stats: {
         assignedJobs: 34,
-        completedProposals: 28,
+        completedProposals: 0,
         successRate: 82.4,
         avgResponseTime: 1.8,
         thisWeek: 8,
         thisMonth: 28
       },
       recentActivity: [
-        { job: "React Developer for E-commerce", status: "completed", date: "2 hours ago" },
-        { job: "Full Stack Engineer - SaaS Platform", status: "completed", date: "5 hours ago" },
-        { job: "Frontend Developer - Mobile App", status: "in-progress", date: "1 day ago" }
+        { job: "React Developer for E-commerce", status: "assigned", date: "2 hours ago" },
+        { job: "Full Stack Engineer - SaaS Platform", status: "assigned", date: "5 hours ago" },
+        { job: "Frontend Developer - Mobile App", status: "assigned", date: "1 day ago" }
       ]
     },
     {
       id: "2",
-      name: "Michael Chen",
-      email: "michael.chen@company.com",
+      name: "Saadain Haider",
+      email: "saadain.haider@company.com",
       role: "Technical Writer",
-      avatar: "MC",
+      avatar: "SH",
       status: "active",
       stats: {
-        assignedJobs: 29,
-        completedProposals: 24,
+        assignedJobs: 9,
+        completedProposals: 0,
         successRate: 82.8,
         avgResponseTime: 2.1,
         thisWeek: 6,
-        thisMonth: 24
+        thisMonth: 9,
       },
       recentActivity: [
-        { job: "Python Developer - AI/ML Project", status: "completed", date: "3 hours ago" },
-        { job: "Backend Engineer - API Development", status: "in-progress", date: "6 hours ago" },
-        { job: "DevOps Engineer - Cloud Infrastructure", status: "pending", date: "1 day ago" }
+        { job: "Python Developer - AI/ML Project", status: "assigned", date: "3 hours ago" },
+        { job: "Backend Engineer - API Development", status: "assigned", date: "6 hours ago" },
+        { job: "DevOps Engineer - Cloud Infrastructure", status: "assigned", date: "1 day ago" }
       ]
     },
-    {
-      id: "3",
-      name: "Emily Rodriguez",
-      email: "emily.rodriguez@company.com",
-      role: "Proposal Specialist",
-      avatar: "ER",
-      status: "active",
-      stats: {
-        assignedJobs: 31,
-        completedProposals: 27,
-        successRate: 87.1,
-        avgResponseTime: 1.6,
-        thisWeek: 9,
-        thisMonth: 27
-      },
-      recentActivity: [
-        { job: "Mobile App Developer - iOS/Android", status: "completed", date: "1 hour ago" },
-        { job: "UI/UX Designer - Web Application", status: "completed", date: "4 hours ago" },
-        { job: "Data Scientist - Machine Learning", status: "completed", date: "8 hours ago" }
-      ]
-    },
-    {
-      id: "4",
-      name: "David Kim",
-      email: "david.kim@company.com",
-      role: "Content Writer",
-      avatar: "DK",
-      status: "active",
-      stats: {
-        assignedJobs: 26,
-        completedProposals: 21,
-        successRate: 80.8,
-        avgResponseTime: 2.3,
-        thisWeek: 5,
-        thisMonth: 21
-      },
-      recentActivity: [
-        { job: "WordPress Developer - Blog Platform", status: "completed", date: "2 hours ago" },
-        { job: "Shopify Developer - E-commerce Store", status: "in-progress", date: "5 hours ago" },
-        { job: "Web Developer - Corporate Website", status: "pending", date: "1 day ago" }
-      ]
-    },
-    {
-      id: "5",
-      name: "Jessica Martinez",
-      email: "jessica.martinez@company.com",
-      role: "Senior Writer",
-      avatar: "JM",
-      status: "active",
-      stats: {
-        assignedJobs: 38,
-        completedProposals: 32,
-        successRate: 84.2,
-        avgResponseTime: 1.9,
-        thisWeek: 10,
-        thisMonth: 32
-      },
-      recentActivity: [
-        { job: "Full Stack Developer - Enterprise App", status: "completed", date: "30 mins ago" },
-        { job: "Node.js Developer - Microservices", status: "completed", date: "3 hours ago" },
-        { job: "React Native Developer - Mobile App", status: "in-progress", date: "6 hours ago" }
-      ]
-    }
+   
   ];
 
   const getStatusColor = (status: string) => {
